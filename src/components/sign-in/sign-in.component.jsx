@@ -19,11 +19,12 @@ class SignIn extends React.Component {
   };
 
   handleChange = (event) => {
-    const { value, name } = event.target;
-    this.setState([{ name: value }]);
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   };
 
   render() {
+    const { email, password } = this.state;
     return (
       <div className="sign-in">
         <h2>I already have an account</h2>
@@ -32,7 +33,7 @@ class SignIn extends React.Component {
           <FormInput
             name="email"
             type="email"
-            value={this.state.email}
+            value={email}
             required
             handleChange={this.handleChange}
             label="Email"
@@ -40,7 +41,7 @@ class SignIn extends React.Component {
           <FormInput
             name="password"
             type="password"
-            value={this.state.password}
+            value={password}
             required
             handleChange={this.handleChange}
             label="Password"
